@@ -85,9 +85,3 @@ class operator(node):
 
 
 class expression:
-
-    def __init__(self,str):
-        pass
-
-    class node:
-                
