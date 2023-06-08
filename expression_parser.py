@@ -29,11 +29,8 @@ def parse_expression(string):
                 root_precedence = precedence
                 operator = char
 
-    print(string)
     left_operand = string[:root_index]
     right_operand = string[root_index + 1:]
-    print(left_operand)
-    print(right_operand)
 
     if is_var(left_operand, True):
         left = Var(left_operand)
