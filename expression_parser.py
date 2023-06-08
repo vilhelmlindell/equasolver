@@ -33,14 +33,14 @@ def parse_expression(string):
     right_operand = string[root_index + 1:]
 
     if is_var(left_operand, True):
-        left = Var(left_operand)
+        left = Var(left_operand.strip("()"))
     else:
         if left_operand[0] == '(' and left_operand[-1] == ')':
             left_operand = left_operand.strip("()")
         left = parse_expression(left_operand)
 
     if is_var(right_operand, False):
-        right = Var(right_operand)
+        right = Var(right_operand.strip("()"))
     else:
         if right_operand[0] == '(' and right_operand[-1] == ')':
             right_operand = right_operand.strip("()")
@@ -49,9 +49,6 @@ def parse_expression(string):
     return Operator(operator, left, right)
 
 def is_var(string, right_to_left):
-    if string[0] == '(' and string[-1] == ')':
-        return False
-
     if right_to_left:
         for i in range(len(string), -1):
             char = string[i]
