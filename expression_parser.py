@@ -64,8 +64,3 @@ def is_var(string, right_to_left):
                 return False
 
     return True
-
-def split_and_remove(string, index):
-    before = string[:index]
-    after = string[index+1:]
-    return before, after
