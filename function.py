@@ -27,3 +27,8 @@ class Function(Node):
             raise Exception("Not a built in function")
         self.function = function
         self.element = input
+
+    def evaluate(self):
+        if(self.right.numerical==False or self.left.numerical==False):
+            raise Exception("Cant evaluate non-numerical expression")
+        return FUNCTIONS[self.function](self.element.element)
